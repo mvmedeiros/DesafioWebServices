@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/signInFragment">
+
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.projetointegrador.desafiowebservices.sign.view.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_comicLibraryFragment"
+            app:destination="@id/comicLibraryFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.projetointegrador.desafiowebservices.sign.view.SignUpFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_comicLibraryFragment"
+            app:destination="@id/comicLibraryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/comicLibraryFragment"
+        android:name="com.projetointegrador.desafiowebservices.comic.view.ComicLibraryFragment"
+        android:label="Comic Library"
+        tools:layout="@layout/fragment_comic_library" >
+        <action
+            android:id="@+id/action_comicLibraryFragment_to_comicFragment"
+            app:destination="@id/comicFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/comicFragment"
+        android:name="com.projetointegrador.desafiowebservices.comic.view.ComicFragment"
+        android:label="fragment_comic"
+        tools:layout="@layout/fragment_comic" >
+        <action
+            android:id="@+id/action_comicFragment_to_comicCoverExpandedFragment"
+            app:destination="@id/comicCoverExpandedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/comicCoverExpandedFragment"
+        android:name="com.projetointegrador.desafiowebservices.comic.view.ComicCoverExpandedFragment"
+        android:label="ComicCoverExpandedFragment" />
+
+</navigation>
